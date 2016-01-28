@@ -221,5 +221,8 @@ void videotest(){
 
 	dumpDebug();
 
-	drawString("Forty-Two", SCREEN_WIDTH / 2 - 4.5 * CHAR_WIDTH, SCREEN_HEIGHT / 2 + CHAR_HEIGHT / 2, 0xFF00FF00);
+    drawString("TEAM.HDMI", SCREEN_WIDTH / 2 - 4.5 * CHAR_WIDTH, SCREEN_HEIGHT / 2 + CHAR_HEIGHT / 2, 0xFF00FF00);
+
+    framebuffer[0] = 0xFFFF0000;
+
 }
