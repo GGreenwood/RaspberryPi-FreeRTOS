@@ -112,6 +112,15 @@ void drawPixel(unsigned int x, unsigned int y, int color) {
     framebuffer[y * SCREEN_WIDTH + x] = color;
 }
 
+void drawRect(unsigned int x1, unsigned int y1, unsigned int x2, unsigned int y2, int color) {
+    unsigned int i, j = 0;
+    for(i = x1; i < x2; i++) {
+        for(j = y1; j < y2; j++) {
+            drawPixel(i, j, color);
+        }
+    }
+}
+
 void drawChar(unsigned char c, int x, int y, int color){
 	int i, j;
 
@@ -225,9 +234,10 @@ void videotest(){
 
 	dumpDebug();
 
-    drawString("TEAM.HDMI", SCREEN_WIDTH / 2 - 4.5 * CHAR_WIDTH, SCREEN_HEIGHT / 2 + CHAR_HEIGHT / 2, 0xFF00FF00);
+    drawString("TEAM_HDMI", SCREEN_WIDTH / 2 - 4.5 * CHAR_WIDTH, SCREEN_HEIGHT / 2 + CHAR_HEIGHT / 2, 0xFF00FF00);
 
     framebuffer[0] = 0xFFFF0000;
     drawPixel(1,1,0xFF0000FF);
+    drawRect(10, 10, 20, 20, 0xFF00FF00);
 
 }
