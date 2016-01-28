@@ -108,6 +108,10 @@ void initFB(){
 	framebuffer = (unsigned int*)(mailbuffer[19] - 0xC0000000);
 }
 
+void drawPixel(unsigned int x, unsigned int y, int color) {
+    framebuffer[y * SCREEN_WIDTH + x] = color;
+}
+
 void drawChar(unsigned char c, int x, int y, int color){
 	int i, j;
 
@@ -224,5 +228,6 @@ void videotest(){
     drawString("TEAM.HDMI", SCREEN_WIDTH / 2 - 4.5 * CHAR_WIDTH, SCREEN_HEIGHT / 2 + CHAR_HEIGHT / 2, 0xFF00FF00);
 
     framebuffer[0] = 0xFFFF0000;
+    drawPixel(1,1,0xFF0000FF);
 
 }
